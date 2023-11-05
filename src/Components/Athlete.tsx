@@ -11,6 +11,7 @@ class Athlete {
     this.age = age;
     this.teamHistory = [];
     this.salary = salary;
+
     makeObservable(this, {
       tradePlayer: action,
       wishHappyBirthday: action,

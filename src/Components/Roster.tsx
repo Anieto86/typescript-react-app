@@ -1,12 +1,12 @@
 import { observer } from 'mobx-react';
 import React from 'react';
-import Athlete from './Athlete';
-import { TradeForm } from './TradeForm';
 
-const messi = new Athlete('Messi', 37, 20);
-const elDiego = new Athlete('El Diego', 60, 30);
+import { TradeForm } from './TradeForm';
+import { useTeamStore } from '../services/store/TeamStore';
 
 export const Roster = observer(() => {
+  // 3 usar el custom hook para llamar la data
+  const { players } = useTeamStore();
   return (
     <>
       {' '}
@@ -24,7 +24,7 @@ export const Roster = observer(() => {
           </tr>
         </thead>
 
-        {[messi, elDiego].map((athlete) => {
+        {players.map((athlete) => {
           return (
             <tbody key={athlete.name}>
               <tr>
